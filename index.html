@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance App</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="app">
+
+  <div id="telas" class="telas">
+
+    <!-- HOME -->
+    <div id="tela-home" class="tela ativa">
+      <h1>💳 Meu Financeiro</h1>
+
+      <div class="card resumo">
+        <div class="linha-topo">
+          <div class="entrada">
+            <p>Entradas</p>
+            <span id="entradas">R$ 0</span>
+          </div>
+
+          <div class="saldo-centro">
+            <p>Saldo</p>
+            <h2 id="saldo">R$ 0</h2>
+          </div>
+
+          <div class="saida">
+            <p>Saídas</p>
+            <span id="saidas">R$ 0</span>
+          </div>
+        </div>
+
+        <canvas id="grafico"></canvas>
+      </div>
+    </div>
+
+    <!-- LANÇAMENTOS -->
+    <div id="tela-lancamentos" class="tela">
+      <h2>Lançamentos</h2>
+
+      <div class="card form">
+        <input type="text" id="descricao" placeholder="Descrição">
+        <input type="number" id="valor" placeholder="Valor">
+
+        <select id="tipo">
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+        </select>
+
+        <button onclick="adicionar()">Adicionar</button>
+      </div>
+
+      <div class="card">
+        <input type="month" id="filtroMes" onchange="atualizar()">
+      </div>
+
+      <div class="card lista">
+        <ul id="listaLanc"></ul>
+      </div>
+    </div>
+
+    <!-- BUSCA -->
+    <div id="tela-busca" class="tela">
+      <h2>Buscar</h2>
+
+      <div class="card">
+        <input type="text" id="busca" placeholder="🔍 Buscar..." oninput="atualizar()">
+      </div>
+
+      <div class="card lista">
+        <ul id="listaBusca"></ul>
+      </div>
+    </div>
+
+    <!-- BACKUP -->
+    <div id="tela-backup" class="tela">
+      <h2>Backup</h2>
+
+      <div class="card">
+        <button onclick="exportar()">Exportar Backup</button>
+        <input type="file" onchange="importar(event)">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MENU -->
+<div class="menu">
+  <button onclick="trocarTela('home')" id="btn-home">🏠</button>
+  <button onclick="trocarTela('lancamentos')" id="btn-lancamentos">📄</button>
+  <button onclick="trocarTela('busca')" id="btn-busca">🔍</button>
+  <button onclick="trocarTela('backup')" id="btn-backup">⚙️</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* CONTAINER */
+.app {
+  overflow: hidden;
+}
+
+/* TELAS (SLIDE) */
+.telas {
+  display: flex;
+  width: 400%;
+  transition: transform 0.3s ease;
+}
+
+.tela {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* RESUMO */
+.linha-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entrada span { color: #00ff88; }
+.saida span { color: #ff4d4d; }
+
+.saldo-centro h2 {
+  font-size: 28px;
+  text-align: center;
+}
+
+/* INPUTS */
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: none;
+}
+
+input, select {
+  background: #2a2a2a;
+  color: white;
+}
+
+button {
+  background: #00ff88;
+  color: black;
+  font-weight: bold;
+}
+
+/* LISTA */
+ul { list-style: none; padding: 0; }
+
+li {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MENU */
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #1c1c1c;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.menu button {
+  background: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* BOTÃO ATIVO */
+.menu button.ativo {
+  color: #00ff88;
+  transform: scale(1.2);
+}
+
+/* GRÁFICO */
+canvas {
+  max-height: 160px;
+}
