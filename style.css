@@ -1,3 +1,8 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -5,29 +10,33 @@ body {
   color: white;
 }
 
-/* CONTAINER */
+/* APP CENTRAL */
 .app {
+  max-width: 900px;
+  margin: 0 auto;
   overflow: hidden;
+  min-height: 100vh;
+  padding-bottom: 80px; /* espaço pro menu */
 }
 
-/* TELAS (SLIDE) */
+/* CONTAINER DE TELAS */
 .telas {
   display: flex;
-  width: 400%;
+  width: 100%;
   transition: transform 0.3s ease;
 }
 
+/* TELAS */
 .tela {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 20px;
+  min-width: 100%;
+  padding: 15px;
 }
 
 /* CARDS */
 .card {
   background: #1c1c1c;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
@@ -41,18 +50,53 @@ body {
 .entrada span { color: #00ff88; }
 .saida span { color: #ff4d4d; }
 
-.saldo-centro h2 {
-  font-size: 28px;
+.saldo-centro {
   text-align: center;
+}
+
+.saldo-centro h2 {
+  margin: 5px 0;
+  font-size: 26px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* TABLET */
+@media (min-width: 600px) {
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form select,
+  .form button {
+    grid-column: span 2;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 900px) {
+  .form {
+    grid-template-columns: 2fr 1fr 1fr auto;
+  }
+
+  .form button {
+    grid-column: auto;
+  }
 }
 
 /* INPUTS */
 input, select, button {
   width: 100%;
-  padding: 10px;
-  margin-top: 8px;
+  padding: 12px;
   border-radius: 10px;
   border: none;
+  font-size: 16px;
 }
 
 input, select {
@@ -64,10 +108,14 @@ button {
   background: #00ff88;
   color: black;
   font-weight: bold;
+  min-height: 45px;
 }
 
 /* LISTA */
-ul { list-style: none; padding: 0; }
+ul {
+  list-style: none;
+  padding: 0;
+}
 
 li {
   background: #2a2a2a;
@@ -76,17 +124,28 @@ li {
   margin-top: 8px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* MENU */
+/* GRÁFICO */
+canvas {
+  width: 100% !important;
+  max-height: 180px;
+}
+
+/* MENU FIXO */
 .menu {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 900px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #1c1c1c;
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
+  border-top: 1px solid #333;
 }
 
 .menu button {
@@ -99,9 +158,4 @@ li {
 .menu button.ativo {
   color: #00ff88;
   transform: scale(1.2);
-}
-
-/* GRÁFICO */
-canvas {
-  max-height: 160px;
 }
